@@ -1,0 +1,46 @@
+* {
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+.view {
+    float: left;
+}
+
+.seconds {
+    float: right;
+}
+
+#header {    
+    display: block;
+    margin: 14px;
+    display: inline-block;    
+    width: 95vw;
+}
+
+#main {
+    text-align: center;
+}
+
+#mainBody {
+    padding: 12vh;
+}
+
+h4 {
+    padding: 10px 8px;
+}
+
+button {
+    border: solid black;
+    border-width: 1px;
+    color: cornsilk;
+    background-color: slategray;
+    border-radius: 3px;
+    padding: 10px 16px;
+    font-size: small;
+}
+
+button:hover {
+    background-color: steelblue;    
+}
