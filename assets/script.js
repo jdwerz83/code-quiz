@@ -1,39 +1,38 @@
+var questions = [{
+    title: "JavaScript strings are for storing and manipulating what?",
+    choices: ["codes", "text", "booleans", "percentages"],
+    answer: "text"
+},
+{
+    title: "Array indexes start with what?",
+    choices: ["0", "1", "A", "first"],
+    answer: "0"
+},
+{
+    title: "What is the JavaScript keyword that refers to the object it belongs to?",
+    choices: ["Let", "Const", "This", "Var"],
+    answer: "This"
+},
+{
+    title: "This JavaScript data type represents one of two values: true or false.",
+    choice: ["For", "Var", "div", "Boolean"],
+    answer: "Boolean"
+},
+{
+    title: "Objects are wrapped in what?",
+    choice: ["()", "[]", "{}", "||"],
+    answer: "{}"
+}
+]
 var secondsLeft = 0;
 var timer;
 var score = 0;
 var nextQ = -1;
 
-var questions = [{
-    title: "JavaScript strings are for storing and manipulating what?",
-    choices: ["codes", "text", "booleans", "percentages"],
-    answer: "text"
-    },
-    {
-    title: "Array indexes start with what?",
-    choices: ["0", "1", "A", "first"],
-    answer: "0"
-    },
-    {
-    title: "What is the JavaScript keyword that refers to the object it belongs to?",
-    choices: ["Let", "Const", "this", "Var"],
-    answer: "this"
-    },
-    {
-    title: "This JavaScript data type represents one of two values: true or false.",
-    choice: ["For", "Var", "div", "Boolean"],
-    answer: "Boolean"
-    },
-    {
-    title: "Objects are wrapped in what?",
-    choice: ["()", "[]", "{}", "||"],
-    answer: "{}"
-    }
-]
-
 function launch() {
-    secondsLeft = 75;
-    document.getElementById(secondsLeft).innerHTML = secondsLeft;
-
+    secondsLeft = 60;
+    document.getElementById("secondsLeft").innerHTML = secondsLeft;
+    
     timer = setInterval(function() {
         secondsLeft--;
         document.getElementById("secondsLeft").innerHTML = secondsLeft;
@@ -48,7 +47,7 @@ function launch() {
 function terminate() {
     clearInterval(timer);
     var theQuiz = `
-    <h2>Final Score is ' + score + '.</h2>
+    <h2>Final Score is ` + score + `.</h2>
     <input type="text" id="initials" placeholder="Initials">
     <button onclick="highScore()">Your score</button>
     `;
@@ -56,23 +55,23 @@ function terminate() {
 }
 
 function highScore() {
-    localStorage.setItem("highscore", score);
-    localStorage.setItem("highscoreInitials", document.getElementById('initials').value);
+    localStorage.setItem("highScore", score);
+    localStorage.setItem("highScoreInitials", document.getElementById('initials').value);
     scoreBoard();
 }
 
 function scoreBoard() {
     var theQuiz = `
-    <h2>` + localStorage.getItem("highscoreInitials") + ` has a highscore of:</h2>
-    <h1>` + localStorage.getItem("highscore") + `</h1><br>
+    <h2>` + localStorage.getItem("highScoreInitials") + ` has a highscore of:</h2>
+    <h1>` + localStorage.getItem("highScore") + `</h1><br>
     <button onclick="clearScores()">Clear Score</button><button onclick="reset()">Try Again</button>
     `;
     document.getElementById("mainBody").innerHTML = theQuiz;
 }
 
 function clearScores() {
-    localStorage.setItem("highscore", "");
-    localStorage.setItem("highscoreInitials", "");
+    localStorage.setItem("highScore", "");
+    localStorage.setItem("highScoreInitials", "");
     reset();
 }
 
